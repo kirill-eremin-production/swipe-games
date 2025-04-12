@@ -54,7 +54,7 @@ const sceneKeys = {
 const scenes = {
     [sceneKeys['1']]: {
         background:
-            'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-1.png")',
+            'https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-1.png',
         leftCard: {
             params: cards['Насладиться пением птиц'],
         },
@@ -64,7 +64,7 @@ const scenes = {
     },
     [sceneKeys['2']]: {
         background:
-            'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-2.png")',
+            'https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-2.png',
         leftCard: {
             params: cards['Отправиться на работу в поле'],
         },
@@ -74,7 +74,7 @@ const scenes = {
     },
     [sceneKeys['3']]: {
         background:
-            'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-3.png")',
+            'https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-3.png',
         leftCard: {
             params: cards['Насладиться пением птиц'],
         },
@@ -84,7 +84,7 @@ const scenes = {
     },
     [sceneKeys['4']]: {
         background:
-            'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-4.png")',
+            'https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-4.png',
         leftCard: {
             params: cards['Усердно трудиться'],
         },
@@ -94,11 +94,11 @@ const scenes = {
     },
     [sceneKeys['5']]: {
         background:
-            'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-5.png")',
+            'https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-5.png',
     },
     [sceneKeys['6']]: {
         background:
-            'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-6.png")',
+            'https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-6.png',
     },
 };
 

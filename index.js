@@ -11,6 +11,7 @@ import {
 import { storyConfig } from './js/story/config.js';
 import { setScreenData } from './js/story/set-screen-data.js';
 import { executeCardActions } from './js/cards/execute-card-actions.js';
+import { preloadNextSceneImages } from './js/utils/preload-image.js';
 
 const state = {
     health: storyConfig.health,
@@ -26,6 +27,7 @@ const state = {
     let isLeftCardSelected = false;
     let isRightCardSelected = false;
     setScreenData(currentConfig);
+    preloadNextSceneImages(currentConfig);
 
     swipeController.addEventListener('touchstart', (event) => {
         event.preventDefault();
@@ -75,6 +77,7 @@ const state = {
                     state,
                     config: leftCardConfig,
                 });
+                preloadNextSceneImages(currentConfig);
             });
         } else if (isRightCardSelected) {
             const rightCardConfig = currentConfig.rightCard.params;
@@ -87,6 +90,7 @@ const state = {
                     state,
                     config: rightCardConfig,
                 });
+                preloadNextSceneImages(currentConfig);
             });
         }
 

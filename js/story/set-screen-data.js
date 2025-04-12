@@ -27,7 +27,7 @@ export const setScreenData = (data) => {
     const rightCardMessage = document.querySelector('#js-right-card-message');
     const rightCardEffects = document.querySelector('#js-right-card-effects');
 
-    setCSS(mainBackground, 'backgroundImage', data.background);
+    setCSS(mainBackground, 'backgroundImage', `url(${data.background})`);
 
     if (data.leftCard) {
         setCSS(
