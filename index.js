@@ -90,6 +90,6 @@ const state = {
             });
         }
 
-        console.log('>>> config', storyConfig);
+        console.log('>>> config', { storyConfig, currentConfig });
     });
 })();
