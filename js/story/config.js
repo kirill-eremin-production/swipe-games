@@ -49,20 +49,7 @@ const screen3 = {
     leftCard: {
         background:
             'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/left-card-3.png")',
-        next: {
-            background:
-                'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-2.png")',
-            leftCard: {
-                background:
-                    'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/left-card-2.png")',
-                next: screen4,
-            },
-            rightCard: {
-                background:
-                    'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/right-card-2.png")',
-                next: this,
-            },
-        },
+        next: {},
     },
     rightCard: {
         background:
@@ -82,22 +69,10 @@ const screen2 = {
     rightCard: {
         background:
             'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/right-card-2.png")',
-        next: {
-            background:
-                'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/screen-3.png")',
-            leftCard: {
-                background:
-                    'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/left-card-3.png")',
-                next: this,
-            },
-            rightCard: {
-                background:
-                    'url("https://storage.yandexcloud.net/k-ai-public/swipe-games/12-01-2025/right-card-3.png")',
-                next: screen4,
-            },
-        },
+        next: screen3,
     },
 };
+screen3.leftCard.next = screen2;
 
 const screen1 = {
     background:
