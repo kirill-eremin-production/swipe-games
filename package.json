@@ -1,0 +1,20 @@
+{
+  "name": "swipe-games",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirill-eremin-production/swipe-games.git"
+  },
+  "author": "Kirill Eremin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirill-eremin-production/swipe-games/issues"
+  },
+  "homepage": "https://github.com/kirill-eremin-production/swipe-games#readme",
+  "description": "",
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
