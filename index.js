@@ -5,10 +5,14 @@
     const rightCard = document.querySelector('#js-right-swipe-card');
 
     swipeController.addEventListener('touchstart', (event) => {
+        event.preventDefault();
+
         initialTouchX = event.touches[0].clientX;
     });
 
     swipeController.addEventListener('touchmove', (event) => {
+        event.preventDefault();
+
         const currentTouchX = event.touches[0].clientX;
         const dx = initialTouchX - currentTouchX;
         const isLeftMove = dx > 0;
@@ -42,6 +46,8 @@
     });
 
     swipeController.addEventListener('touchend', (event) => {
+        event.preventDefault();
+
         leftCard.style.transform = '';
         leftCard.style.zIndex = '';
         leftCard.style.boxShadow = '';
