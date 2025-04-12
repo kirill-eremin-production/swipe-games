@@ -1,5 +1,5 @@
-const setCSS = (element, property, value) => {
-    if (!value) {
+const setCSS = (element, property, value, force) => {
+    if (!value && !force) {
         return;
     }
 
@@ -37,6 +37,9 @@ export const setScreenData = (data) => {
         setCSS(leftCardBackground, 'backgroundImage', data.leftCard.background);
         setInnerHTML(leftCardTitle, data.leftCard.title);
         setInnerHTML(leftCardMessage, data.leftCard.message);
+        setCSS(leftCardBackground, 'display', '', true);
+    } else {
+        setCSS(leftCardBackground, 'display', 'none');
     }
 
     if (data.rightCard) {
@@ -47,5 +50,8 @@ export const setScreenData = (data) => {
         );
         setInnerHTML(rightCardTitle, data.rightCard.title);
         setInnerHTML(rightCardMessage, data.rightCard.message);
+        setCSS(rightCardBackground, 'display', '', true);
+    } else {
+        setCSS(rightCardBackground, 'display', 'none');
     }
 };
