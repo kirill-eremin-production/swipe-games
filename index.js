@@ -5,10 +5,18 @@ import {
     reduceLeftCard,
     reduceRightCard,
     useDefaultCardStyles,
+    fadeScene,
+    isSceneInFade,
 } from './js/cards/styles.js';
-
 import { storyConfig } from './js/story/config.js';
 import { setScreenData } from './js/story/set-screen-data.js';
+import { executeCardActions } from './js/cards/execute-card-actions.js';
+
+const state = {
+    health: storyConfig.health,
+    money: storyConfig.money,
+    energy: storyConfig.energy,
+};
 
 (async () => {
     let initialTouchX = undefined;
@@ -21,12 +29,14 @@ import { setScreenData } from './js/story/set-screen-data.js';
 
     swipeController.addEventListener('touchstart', (event) => {
         event.preventDefault();
+        if (isSceneInFade()) return;
 
         initialTouchX = event.touches[0].clientX;
     });
 
     swipeController.addEventListener('touchmove', (event) => {
         event.preventDefault();
+        if (isSceneInFade()) return;
 
         const currentTouchX = event.touches[0].clientX;
         const dx = initialTouchX - currentTouchX;
@@ -52,15 +62,34 @@ import { setScreenData } from './js/story/set-screen-data.js';
         event.preventDefault();
         useDefaultCardStyles(leftCard);
         useDefaultCardStyles(rightCard);
+        if (isSceneInFade()) return;
 
         if (isLeftCardSelected) {
+            const leftCardConfig = currentConfig.leftCard.params;
+
             isLeftCardSelected = false;
-            currentConfig = currentConfig.leftCard.next;
-            setScreenData(currentConfig);
+            currentConfig = currentConfig.leftCard.nextScene;
+            fadeScene(() => {
+                setScreenData(currentConfig);
+                executeCardActions({
+                    state,
+                    config: leftCardConfig,
+                });
+            });
         } else if (isRightCardSelected) {
+            const rightCardConfig = currentConfig.rightCard.params;
+
             isRightCardSelected = false;
-            currentConfig = currentConfig.rightCard.next;
-            setScreenData(currentConfig);
+            currentConfig = currentConfig.rightCard.nextScene;
+            fadeScene(() => {
+                setScreenData(currentConfig);
+                executeCardActions({
+                    state,
+                    config: rightCardConfig,
+                });
+            });
         }
+
+        console.log('>>> config', storyConfig);
     });
 })();

@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 * {
     box-sizing: border-box;
     height: 100%;
     user-select: none;
-    font-family: Arial, sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 body {
@@ -20,40 +22,24 @@ body {
     background-color: gray;
     position: relative;
     overflow: hidden;
+    transition: 0.3s opacity;
+}
+
+.fade {
+    opacity: 0;
 }
 
 .swipe-controller__cards-container {
     position: absolute;
-    height: 35%;
-    bottom: 0;
+    height: 150px;
+    bottom: 64px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-}
-
-.swipe-card {
-    position: relative;
-    margin: 1rem;
-    width: 50%;
-    padding: 1rem;
-    height: calc(100% - 2rem);
-    transition:
-        0.3s transform,
-        0.3s box-shadow,
-        0.3s opacity;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: center;
-}
-
-.left-swipe-card {
-    transform: scale(1.2) rotate(15deg) translateX(-15%) translateY(20%);
-}
-
-.right-swipe-card {
-    transform: scale(1.2) rotate(-15deg) translateX(15%) translateY(20%);
+    padding: 0 32px;
+    gap: 1rem;
 }
 
 .main-background {
@@ -92,6 +78,26 @@ body {
     line-height: 1.2;
 }
 
+.swipe-card {
+    background-color: rgba(0, 0, 0, 0.66);
+    border-radius: 1rem;
+    position: relative;
+    width: 100%;
+    min-width: 120px;
+    max-width: 150px;
+    padding: 1rem;
+    height: 150px;
+    transition:
+        0.3s transform,
+        0.3s box-shadow,
+        0.3s opacity;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(20, 20, 20, 1);
+    color: white;
+}
 .card-title {
     text-align: center;
     height: auto;
@@ -102,6 +108,38 @@ body {
 .card-message {
     text-align: center;
     height: auto;
-    font-size: 0.5rem;
-    line-height: 1.2;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+.card-effect-message {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    bottom: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.top-menu {
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+.top-menu__element {
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.66);
+    color: white;
+    font-size: 0.75rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
 }

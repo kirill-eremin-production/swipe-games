@@ -1,12 +1,12 @@
 import { leftCard, rightCard } from './selectors.js';
 
 export const selectLeftCard = () => {
-    leftCard.style.transform = 'scale(1.5) translateX(35%) translateY(-20%)';
+    leftCard.style.transform = 'scale(1.5) translateX(37%) translateY(-20%)';
     leftCard.style.zIndex = '1';
 };
 
 export const selectRightCard = () => {
-    rightCard.style.transform = 'scale(1.5) translateX(-35%) translateY(-20%)';
+    rightCard.style.transform = 'scale(1.5) translateX(-37%) translateY(-20%)';
     rightCard.style.zIndex = '1';
 };
 
@@ -34,4 +34,20 @@ export const useDefaultCardStyles = (card) => {
     card.style.zIndex = '';
     card.style.boxShadow = '';
     card.style.opacity = '';
+};
+
+export const isSceneInFade = () => {
+    const app = document.getElementById('js-app');
+    return app.classList.contains('fade');
+};
+
+export const fadeScene = (callback) => {
+    const app = document.getElementById('js-app');
+    app.classList.add('fade');
+
+    setTimeout(callback, 400);
+
+    setTimeout(() => {
+        app.classList.remove('fade');
+    }, 700);
 };

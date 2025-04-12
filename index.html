@@ -11,33 +11,49 @@
         <link rel="stylesheet" href="./styles.css" />
     </head>
     <body>
-        <main class="app">
+        <main id="js-app" class="app">
             <div id="js-main-background" class="main-background">
-                <div class="main-text-content">
-                    <div id="js-main-title" class="main-title"></div>
-                    <div id="js-main-message" class="main-message"></div>
+                <!-- Верхнее меню с параметрами игрока -->
+                <div class="top-menu">
+                    <div id="js-health" class="top-menu__element">
+                        Здоровье: 1
+                    </div>
+                    <div id="js-money" class="top-menu__element">Деньги: 1</div>
+                    <div id="js-energy" class="top-menu__element">
+                        Энергия: 1
+                    </div>
                 </div>
             </div>
+
+            <!-- Управление карточками решений -->
             <div id="js-swipe-controller" class="swipe-controller">
                 <div class="swipe-controller__cards-container">
+                    <!-- Левая карточка -->
                     <div
                         id="js-left-swipe-card"
                         class="swipe-card left-swipe-card"
                     >
-                        <div id="js-left-card-title" class="card-title"></div>
                         <div
                             id="js-left-card-message"
                             class="card-message"
                         ></div>
+                        <div
+                            id="js-left-card-effects"
+                            class="card-effect-message"
+                        ></div>
                     </div>
+                    <!-- Правая карточка -->
                     <div
                         id="js-right-swipe-card"
                         class="swipe-card right-swipe-card"
                     >
-                        <div id="js-right-card-title" class="card-title"></div>
                         <div
                             id="js-right-card-message"
                             class="card-message"
+                        ></div>
+                        <div
+                            id="js-right-card-effects"
+                            class="card-effect-message"
                         ></div>
                     </div>
                 </div>

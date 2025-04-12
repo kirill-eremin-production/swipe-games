@@ -6,8 +6,8 @@ const setCSS = (element, property, value, force) => {
     element.style[property] = value;
 };
 
-const setInnerHTML = (element, value) => {
-    if (!value) {
+const setInnerHTML = (element, value, force) => {
+    if (!value && !force) {
         return;
     }
 
@@ -20,23 +20,23 @@ export const setScreenData = (data) => {
     }
 
     const mainBackground = document.querySelector('#js-main-background');
-    const mainTitle = document.querySelector('#js-main-title');
-    const mainMessage = document.querySelector('#js-main-message');
     const leftCardBackground = document.querySelector('#js-left-swipe-card');
-    const leftCardTitle = document.querySelector('#js-left-card-title');
     const leftCardMessage = document.querySelector('#js-left-card-message');
+    const leftCardEffects = document.querySelector('#js-left-card-effects');
     const rightCardBackground = document.querySelector('#js-right-swipe-card');
-    const rightCardTitle = document.querySelector('#js-right-card-title');
     const rightCardMessage = document.querySelector('#js-right-card-message');
+    const rightCardEffects = document.querySelector('#js-right-card-effects');
 
     setCSS(mainBackground, 'backgroundImage', data.background);
-    setInnerHTML(mainTitle, data.title);
-    setInnerHTML(mainMessage, data.message);
 
     if (data.leftCard) {
-        setCSS(leftCardBackground, 'backgroundImage', data.leftCard.background);
-        setInnerHTML(leftCardTitle, data.leftCard.title);
-        setInnerHTML(leftCardMessage, data.leftCard.message);
+        setCSS(
+            leftCardBackground,
+            'backgroundImage',
+            data.leftCard.params.background
+        );
+        setInnerHTML(leftCardMessage, data.leftCard.params.message);
+        setInnerHTML(leftCardEffects, data.leftCard.params.effects || '', true);
         setCSS(leftCardBackground, 'display', '', true);
     } else {
         setCSS(leftCardBackground, 'display', 'none');
@@ -46,10 +46,14 @@ export const setScreenData = (data) => {
         setCSS(
             rightCardBackground,
             'backgroundImage',
-            data.rightCard.background
+            data.rightCard.params.background
         );
-        setInnerHTML(rightCardTitle, data.rightCard.title);
-        setInnerHTML(rightCardMessage, data.rightCard.message);
+        setInnerHTML(rightCardMessage, data.rightCard.params.message);
+        setInnerHTML(
+            rightCardEffects,
+            data.rightCard.params.effects || '',
+            true
+        );
         setCSS(rightCardBackground, 'display', '', true);
     } else {
         setCSS(rightCardBackground, 'display', 'none');
