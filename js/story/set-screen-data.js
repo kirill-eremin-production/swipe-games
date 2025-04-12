@@ -1,3 +1,19 @@
+const setCSS = (element, property, value) => {
+    if (!value) {
+        return;
+    }
+
+    element.style[property] = value;
+};
+
+const setInnerHTML = (element, value) => {
+    if (!value) {
+        return;
+    }
+
+    element.innerHTML = value;
+};
+
 export const setScreenData = (data) => {
     if (!data) {
         return;
@@ -13,19 +29,23 @@ export const setScreenData = (data) => {
     const rightCardTitle = document.querySelector('#js-right-card-title');
     const rightCardMessage = document.querySelector('#js-right-card-message');
 
-    mainBackground.style.backgroundImage = data.background;
-    mainTitle.innerHTML = data.title;
-    mainMessage.innerHTML = data.message;
+    setCSS(mainBackground, 'backgroundImage', data.background);
+    setInnerHTML(mainTitle, data.title);
+    setInnerHTML(mainMessage, data.message);
 
     if (data.leftCard) {
-        leftCardBackground.style.backgroundImage = data.leftCard.background;
-        leftCardTitle.innerHTML = data.leftCard.title;
-        leftCardMessage.innerHTML = data.leftCard.message;
+        setCSS(leftCardBackground, 'backgroundImage', data.leftCard.background);
+        setInnerHTML(leftCardTitle, data.leftCard.title);
+        setInnerHTML(leftCardMessage, data.leftCard.message);
     }
 
     if (data.rightCard) {
-        rightCardBackground.style.backgroundImage = data.rightCard.background;
-        rightCardTitle.innerHTML = data.rightCard.title;
-        rightCardMessage.innerHTML = data.rightCard.message;
+        setCSS(
+            rightCardBackground,
+            'backgroundImage',
+            data.rightCard.background
+        );
+        setInnerHTML(rightCardTitle, data.rightCard.title);
+        setInnerHTML(rightCardMessage, data.rightCard.message);
     }
 };

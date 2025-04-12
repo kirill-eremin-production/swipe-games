@@ -1,15 +1,13 @@
 import { leftCard, rightCard } from './selectors.js';
 
 export const selectLeftCard = () => {
-    leftCard.style.transform = 'scale(2) translateX(30%) translateY(-25%)';
-    leftCard.style.boxShadow = '0 0 1rem rgba(0, 0, 0, 0.5)';
+    leftCard.style.transform = 'scale(1.5) translateX(35%) translateY(-20%)';
     leftCard.style.zIndex = '1';
 };
 
 export const selectRightCard = () => {
-    rightCard.style.transform = 'scale(2) translateX(-30%) translateY(-25%)';
+    rightCard.style.transform = 'scale(1.5) translateX(-35%) translateY(-20%)';
     rightCard.style.zIndex = '1';
-    rightCard.style.boxShadow = '0 0 1rem rgba(0, 0, 0, 0.5)';
 };
 
 export const reduceLeftCard = () => {
